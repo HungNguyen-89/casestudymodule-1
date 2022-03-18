@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style type="text/css">
+        #background {
+            margin: auto;
+            top: 0px;
+            width: 1000px;
+            height: 600px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        #buttonStartContainer {
+            top: 450px;
+            left: 300px;
+            width: 350px;
+            height: 100px;
+            position: absolute;
+            z-index: 20;
+        }
+
+        #backgroundPlay {
+            margin: auto;
+            top: 0px;
+            width: 1000px;
+            position: relative;
+        }
+
+        #buttonPlayContainer {
+            top: -450px;
+            left: 85px;
+            width: 120px;
+            height: 200px;
+            position: absolute;
+            z-index: 20;
+        }
+
+        #textLength {
+            top: -200px;
+            left: 252px;
+            width: 500px;
+            height: 45px;
+            position: absolute;
+            z-index: 20;
+            text-align: center;
+            /* background-color: aquamarine; */
+        }
+
+        #textAnswer {
+            top: -95px;
+            left: 230px;
+            width: 550px;
+            height: 35px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        #totalAnswer {
+            top: -535px;
+            left: 310px;
+            width: 90px;
+            height: 60px;
+            position: absolute;
+            z-index: 10;
+            font-weight: bold;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        #totalScore {
+            top: -535px;
+            left: 455px;
+            width: 90px;
+            height: 60px;
+            position: absolute;
+            z-index: 10;
+            font-weight: bold;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        #wrongAnswer {
+            top: -535px;
+            left: 602px;
+            width: 90px;
+            height: 60px;
+            position: absolute;
+            z-index: 10;
+            font-weight: bold;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        #timeClock {
+            top: -556px;
+            left: 812px;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 10;
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #notification {
+            top: -420px;
+            left: 797px;
+            width: 195px;
+            height: 75px;
+            position: absolute;
+            font-family: Arial;
+            font-weight: bold;
+            font-style: italic;
+            z-index: 10;
+        }
+
+        #hiddenNumber {
+            top: -200px;
+            left: 900px;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            z-index: -10;
+        }
+
+        #showImage {
+            top: -456px;
+            left: 252px;
+            width: 500px;
+            height: 246px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        #backgroundWiner {
+            margin: auto;
+            top: -600px;
+            width: 500px;
+            position: relative;
+            z-index: -1;
+        }
+
+        #noteWiner {
+            margin: auto;
+            top: -600px;
+            width: 800px;
+            position: relative;
+            z-index: -1;
+            font-weight: bold;
+            font-size: 40px;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #backgroundGameOver {
+            margin: auto;
+            top: -580px;
+            width: 800px;
+            position: relative;
+            z-index: -1;
+            text-align: center;
+        }
+
+        #noteGameOver {
+            margin: auto;
+            top: -575px;
+            width: 800px;
+            position: relative;
+            z-index: -1;
+            font-weight: bold;
+            font-size: 40px;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #playAgain {
+            margin: auto;
+            top: -585px;
+            width: 200px;
+            height: 75px;
+            position: relative;
+            z-index: 20;
+        }
+
+        #backgroundluatchoi {
+            top: -600px;
+            left: 225px;
+            width: 1000px;
+            height: 600px;
+            position: relative;
+            z-index: -1;
+            text-align: center;
+        }
+
+        .buttonPlay {
+            background-color: yellow;
+            border: 2px solid black;
+            color: black;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 135px;
+            transition-duration: 0.4s;
+            font-weight: bold;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        .buttonPlay:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .buttonPlay2 {
+            background-color: gray;
+            border: 2px solid black;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: not-allowed;
+            width: 135px;
+            font-weight: bold;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        #txt {
+            width: 535px;
+            display: inline-block;
+            font-size: 20px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 0;
+            font-family: Arial;
+            font-weight: bold;
+        }
+
+        #txtNumber {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .buttonStart {
+            background-color: yellow;
+            border: 2px solid black;
+            color: black;
+            padding: 5px 5px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 145px;
+            transition-duration: 0.4s;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .buttonStart:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .buttonPlayAgain {
+            background-color: blue;
+            border: 2px solid black;
+            color: white;
+            padding: 5px 5px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 225px;
+            transition-duration: 0.4s;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .buttonPlayAgain:hover {
+            background-color: orangered;
+            color: black;
+        }
+    </style>
+
+    <body>
+        <div id="background">
+            <img src="image/backgroundstart.JPG" style="width:750px;">
+            <div id="buttonStartContainer">
+                <button onclick="luatchoi()" class="buttonStart">Luật chơi</button>
+                <button onclick="playGame()" class="buttonStart">Play</button>
+            </div>
+        </div>
+        <div id="backgroundPlay">
+            <div id="buttonPlayContainer">
+            </div>
+            <div id="textLength">
+            </div>
+            <div id="textAnswer">
+            </div>
+            <div id="totalAnswer">
+            </div>
+            <div id="totalScore">
+            </div>
+            <div id="wrongAnswer">
+            </div>
+            <div id="timeClock">
+            </div>
+            <div id="notification">
+            </div>
+            <div id="hiddenNumber">
+            </div>
+            <div id="showImage">
+            </div>
+        </div>
+        <div id="backgroundWiner">
+        </div>
+        <div id="noteWiner">
+        </div>
+        <div id="gameover">
+            <div id="backgroundGameOver">
+            </div>
+            <div id="noteGameOver">
+            </div>
+        </div>
+        <div id="luatchoi">
+            <div id="backgroundluatchoi">
+            </div>
+            <div id="playAgain">
+            </div>
+        </div>
+        <script>
+            let score = 0;
+            let demFalse = 0;
+            let demXacNhan = 1;
+            let a = [];
+            let dem = 1;
+            let demGoiy = 5;
+            let markGoiy;
+            let x = 0;
+            let c = [];
+            c[0] = 0;
+            let j = 0;
+            a[0] = 'giahan';
+            a[1] = 'noigaioc';
+            a[2] = 'rangsua';
+            a[3] = 'kinhtrong';
+            a[4] = 'chaymatdep';
+            a[5] = 'xichdu';
+            a[6] = 'chamcong';
+            a[7] = 'bongden';
+            a[8] = 'cauchuc';
+            a[9] = 'caphao';
+            a[10] = 'oga';
+            a[11] = 'matbao';
+            a[12] = 'quanso';
+            a[13] = 'cavoixanh';
+            a[14] = 'cuocchim';
+            a[15] = 'lephai';
+            a[16] = 'danda';
+            a[17] = 'thuoctay';
+            a[18] = 'soinoi';
+            a[19] = 'depcaosu';
+            a[20] = 'meomuop';
+            a[21] = 'sachgiaokhoa';
+            a[22] = 'saosolong';
+            a[23] = 'vusu';
+            a[24] = 'cachep';
+            a[25] = 'danem';
+            a[26] = 'daisen';
+            a[27] = 'phagia';
+            a[28] = 'raungo';
+            a[29] = 'haubao';
+            a[30] = 'thuoclao';
+            a[31] = 'baukhiquyen';
+            a[32] = 'ngocnga';
+            a[33] = 'ngoaitru';
+            a[34] = 'mandem';
+            a[35] = 'ngaycong';
+            a[36] = 'binhbau';
+            a[37] = 'dieuhanh';
+            a[38] = 'banhdauxanh';
+            a[39] = 'thoitiensu';
+            a[40] = 'congtruong';
+            a[41] = 'antucnoiphet';
+            a[42] = 'amno';
+            a[43] = 'lela';
+            a[44] = 'dongbo';
+            a[45] = 'betong';
+            a[46] = 'cautraloi';
+            a[47] = 'cachuoi';
+            a[48] = 'bimat';
+            a[49] = 'thanhqua';
+            a[50] = 'apchao';
+            let b = [];
+            b[0] = 'Ngôi nhà (gia) nằm giữa vùng đất khô hạn';
+            b[1] = 'Con ốc mang chiếc vỏ nổi đầy gai phía trên';
+            b[2] = 'Chiếc răng đang bú sữa ngon lành';
+            b[3] = 'Mũi tên hướng về phía chiếc kính lúp có trọng lượng nặng hơn';
+            b[4] = 'Người đàn ông bỏ chạy để lại đôi dép của mình';
+            b[5] = 'Những quả đu đủ được mắc lên trên các dây xích';
+            b[6] = 'Con công đang chấm điểm';
+            b[7] = 'Mũi tên hướng vào bóng của cái đèn';
+            b[8] = 'Hai quả cầu dành tặng những lời chúc tốt đẹp cho nhau';
+            b[9] = 'Khẩu đại pháo bắn ra những quả cà';
+            b[10] = 'Con gà đi về ổ của mình';
+            b[11] = 'Con báo đang nếm mật ong';
+            b[12] = 'Những quân lính lần lượt được đánh số thứ tự';
+            b[13] = 'Con voi và con cá đều có màu xanh';
+            b[14] = 'Con chim dùng cuốc để xới đất';
+            b[15] = 'Mũi tên hướng về chữ lẽ nằm phía bên phải';
+            b[16] = 'Hai cây đàn đang đấu đá với nhau';
+            b[17] = 'Viên thuốc tay cầm một cục tẩy';
+            b[18] = 'Mũi tên hướng về hai nồi nước sôi đang nổi trên mặt nước';
+            b[19] = 'Mũi tên hướng về phía đối dép và quả su cao hơn';
+            b[20] = 'Chú mèo đang đi trên dàn mướp đắng';
+            b[21] = 'Quyển sách cầm ngọn giáo chỉ về phía các khoa của bệnh viện';
+            b[22] = 'Một cây sáo trúc, quyển sổ, lồng chim';
+            b[23] = 'Hai con sư tử đang múa (vũ)';
+            b[24] = 'Một chú cá đang ghi chép';
+            b[25] = 'Mũi tên chỉ về phía cây đàn người anh ra sức động viên';
+            b[26] = 'Đài radio tay cầm hoa sen';
+            b[27] = 'Cây búa phá nát biển đề giá bán của trái cây';
+            b[28] = 'Mũi tên chỉ vào râu của bắp ngô';
+            b[29] = 'Chú khỉ (Hầu) đang cầm bánh bao trên tay';
+            b[30] = 'Những viên thuốc và bản đồ nước Lào';
+            b[31] = 'Quả bầu, bình khí ga và những quyển sách';
+            b[32] = 'Bộ ngà voi và ngọc trai';
+            b[33] = 'Mũi tên hướng vào dấu trừ (-) ở phía bên ngoài (ngoại) vòng tròn';
+            b[34] = 'Mũi tên hướng vào chiếc màn được mắc vào ban đêm';
+            b[35] = 'Mũi tên hướng về phía chú công xòe đuôi vào ban ngày';
+            b[36] = 'Quả bầu chỉ tay vào bình nước';
+            b[37] = 'Hành lá và hạt điều';
+            b[38] = 'Mũi tên hướng vào chiếc bánh màu xanh và có đậu phía trên';
+            b[39] = 'Đồng hồ chỉ thời gian, tiền và quyển sách lịch sử';
+            b[40] = 'Con công đi ngang qua trường học';
+            b[41] = 'Một người ăn tục và nói phét rằng mình có thể ăn mọi thứ';
+            b[42] = 'Mũi tên hướng vào chiếc ấm đang ăn no say';
+            b[43] = 'Quả lê và con la';
+            b[44] = 'Mũi tên hướng về phía đồng xu đang đi bộ trên đường';
+            b[45] = 'Chữ B hiển thị trên đôi dép tông';
+            b[46] = 'Mũi tên hướng về cần câu sẽ phải trả lời câu hỏi của bạn mình';
+            b[47] = 'Quả chuối và con cá';
+            b[48] = 'Quả bí đỏ và lọ mật ong';
+            b[49] = 'Rất nhiều loại quả được đặt trước khung thành';
+            b[50] = 'Mũi tên hường về phía hai chiếc chảo áp sát vào nhau';
+            function getRandomNumber() {
+                let check;
+                do {
+                    check = true;
+                    x = Math.floor(Math.random() * 51);
+                    for (i = 0; i <= j; i++) {
+                        if (c[i] == x) {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check == true) {
+                        if (dem > 0) {
+                            document.getElementById("hiddenNumber").innerHTML = x;
+                            document.getElementById('showImage').innerHTML = '<img src="image/' + x + '.jpg">';
+                            display(x);
+                            document.getElementById("notification").innerHTML = ""
+                            dem = 0;
+                            c[j++] = x;
+                        }
+                    }
+                }
+                while (check == false && j < a.length)
+            }
+            function goiy() {
+                if (demGoiy > 0) {
+                    let x = document.getElementById("hiddenNumber").innerHTML;
+                    document.getElementById("notification").innerHTML = b[x] +
+                        '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                    demGoiy--;
+                    document.getElementById("wrongAnswer").innerHTML = "Gợi ý<br>" + demGoiy;
+                    document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
+                        '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
+                        '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>';
+                }
+                markGoiy = true;
+            }
+            let time = 31;
+            let myInterval = -1;
+            let timeABC;
+            function setTimeClock() {
+                if (myInterval == -1) {
+                    myInterval = setInterval("coutDown()", 1000)
+                }
+                else {
+                    clearInterval(myInterval);
+                    myInterval = -1;
+                    time = 31;
+                }
+            }
+            function coutDown() {
+                time--;
+                document.getElementById("timeClock").innerHTML = time;
+                timeABC = time;
+                if (time == 0) {
+                    clearInterval(myInterval);
+                    document.getElementById('background').innerHTML = '';
+                    document.getElementById('backgroundPlay').innerHTML = '';
+                    document.getElementById('backgroundGameOver').innerHTML = '<img src="image/backgroundgameover.JPG" style="width:450px;">' +
+                        '<audio autoplay><source src="sound/gameover.wav"></audio>';
+                    document.getElementById("noteGameOver").innerHTML = 'Bạn đã thua cuộc!!!<br> Total score : ' + score;
+                    document.getElementById('luatchoi').innerHTML = '';
+                    document.getElementById('noteWiner').innerHTML = '';
+                }
+            }
+            function xacnhan() {
+                dem = 1;
+                document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay2">Trả lời</button><br>' +
+                    '<button id="btn2" onclick="tieptuc()" class="buttonPlay button2">Tiếp theo</button><br>' +
+                    '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
+                    '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                let dapan = (document.getElementById("txt").value).toLowerCase();
+                let x = document.getElementById("hiddenNumber").innerHTML;
+                if (dapan == a[x]) {
+                    document.getElementById("notification").innerHTML = "<br>Bạn đã trả lời chính xác" +
+                        '<audio autoplay><source src="sound/correctAnswer.wav"></audio>';
+                    if (markGoiy == true) {
+                        if (timeABC >= 20) {
+                            score += 25;
+                        }
+                        else if (timeABC >= 10 && timeABC < 20) {
+                            score += 15;
+                        }
+                        else {
+                            score += 5;
+                        }
+                        document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
+                        markGoiy = false;
+                    }
+                    else {
+                        if (timeABC >= 20) {
+                            score += 50;
+                        }
+                        else if (timeABC >= 10 && timeABC < 20) {
+                            score += 30;
+                        }
+                        else {
+                            score += 10;
+                        }
+                        document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
+                    }
+                }
+                else {
+                    document.getElementById('backgroundGameOver').innerHTML = '<img src="image/backgroundgameover.JPG" style="width:450px;">' +
+                        '<audio autoplay><source src="sound/gameover.wav"></audio>';
+                    document.getElementById("noteGameOver").innerHTML = 'Bạn đã thua cuộc!!!<br> Total score : ' + score;
+                    document.getElementById('backgroundPlay').innerHTML = '';
+                    document.getElementById('background').innerHTML = '';
+                    document.getElementById('luatchoi').innerHTML = '';
+                    document.getElementById('noteWiner').innerHTML = '';
+                }
+                setTimeClock();
+                demXacNhan++;
+                console.log(timeABC);
+            }
+            function tieptuc() {
+                if (demXacNhan <= a.length) {
+                    getRandomNumber();
+                    display(x);
+                    document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
+                        '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
+                        '<button onclick="goiy()" class="buttonPlay button3">Gợi ý</button>' +
+                        '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                    setTimeClock();
+                    document.getElementById("totalAnswer").innerHTML = "Số câu<br>" + demXacNhan;
+                    if (demGoiy == 0) {
+                        document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
+                            '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
+                            '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
+                            '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                    }
+                }
+                else {
+                    document.getElementById('backgroundWiner').innerHTML = '<img src="image/backgroundwiner.JPG" style="width:500px;">' +
+                        '<audio autoplay><source src="sound/winner.wav"></audio>';
+                    document.getElementById("noteWiner").innerHTML = 'Chúc mừng bạn đã chiến thắng!!!<br> Total score : ' + score;
+                    document.getElementById("gameover").innerHTML = '';
+                    document.getElementById('backgroundPlay').innerHTML = '';
+                    document.getElementById('background').innerHTML = '';
+                    document.getElementById('luatchoi').innerHTML = '';
+                }
+            }
+            function display(x) {
+                let table = "<table border='0' ><tr>"
+                for (i = 0; i < a[x].length; i++) {
+                    table += "<td>" + '<input type="text" id="txtNumber"' + i + '" placeholder="' + (i + 1) + '" style="width:20px">' + "</td>";
+                }
+                table = table + "</tr></table>";
+                document.getElementById("textLength").innerHTML = table;
+                document.getElementById("textAnswer").innerHTML = '<input type="text" id="txt" placeholder="Nhập đáp án vào đây!!!">';
+            }
+            function playGame() {
+                setTimeClock();
+                document.getElementById('background').innerHTML = '<img src="image/background.jpg" style="width:1000px;" z-index:-1;>' +
+                    '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
+                    '<button id="btn2" onclick="tieptuc()" class="buttonPlay2">Tiếp theo</button><br>' +
+                    '<button onclick="goiy()" class="buttonPlay">Gợi ý</button>';
+                getRandomNumber();
+                document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
+                document.getElementById("wrongAnswer").innerHTML = "Gợi ý<br>" + demGoiy;
+                document.getElementById("totalAnswer").innerHTML = "Số câu<br>" + demXacNhan;
+                document.getElementById('backgroundluatchoi').innerHTML = '';
+                document.getElementById("playAgain").innerHTML = '';
+            }
+            function luatchoi() {
+                document.getElementById('backgroundluatchoi').innerHTML = '<img src="image/backgroundluatchoi.jpg" style="width:1500px;" z-index:-1;>' +
+                    '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                document.getElementById('background').innerHTML = '';
+                document.getElementById("playAgain").innerHTML = '<button onclick="playGame()" class="buttonPlayAgain">Click to Play</button>';
+            }
+        </script>
+    </body>
+
+</html>

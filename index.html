@@ -503,7 +503,9 @@
                     document.getElementById("wrongAnswer").innerHTML = "Gợi ý<br>" + demGoiy;
                     document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
                         '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
-                        '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>';
+                        '<button id="btn3" onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>';
+                    document.getElementById("btn3").disabled = true;
+                    document.getElementById("btn2").disabled = true;
                 }
                 markGoiy = true;
             }
@@ -539,7 +541,7 @@
                 dem = 1;
                 document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay2">Trả lời</button><br>' +
                     '<button id="btn2" onclick="tieptuc()" class="buttonPlay button2">Tiếp theo</button><br>' +
-                    '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
+                    '<button id="btn3" onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
                     '<audio autoplay><source src="sound/selectClick.wav"></audio>';
                 let dapan = (document.getElementById("txt").value).toLowerCase();
                 let x = document.getElementById("hiddenNumber").innerHTML;
@@ -557,6 +559,8 @@
                             score += 5;
                         }
                         document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
+                        document.getElementById("btn1").disabled = true;
+                        document.getElementById("btn3").disabled = true;
                         markGoiy = false;
                     }
                     else {
@@ -570,6 +574,8 @@
                             score += 10;
                         }
                         document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
+                        document.getElementById("btn1").disabled = true;
+                        document.getElementById("btn3").disabled = true;
                     }
                 }
                 else {
@@ -591,15 +597,17 @@
                     display(x);
                     document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
                         '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
-                        '<button onclick="goiy()" class="buttonPlay button3">Gợi ý</button>' +
+                        '<button id="btn3" onclick="goiy()" class="buttonPlay button3">Gợi ý</button>' +
                         '<audio autoplay><source src="sound/selectClick.wav"></audio>';
                     setTimeClock();
-                    document.getElementById("totalAnswer").innerHTML = "Số câu<br>" + demXacNhan;
+                    document.getElementById("totalAnswer").innerHTML = "Số câu<br>" + demXacNhan;                  
                     if (demGoiy == 0) {
                         document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
                             '<button id="btn2" onclick="tieptuc()" class="buttonPlay2 button2">Tiếp theo</button><br>' +
-                            '<button onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
+                            '<button id="btn3" onclick="goiy()" class="buttonPlay2 button3">Gợi ý</button>' +
                             '<audio autoplay><source src="sound/selectClick.wav"></audio>';
+                        document.getElementById("btn3").disabled = true;
+                        document.getElementById("btn2").disabled = true;
                     }
                 }
                 else {
@@ -610,6 +618,7 @@
                     document.getElementById('backgroundPlay').innerHTML = '';
                     document.getElementById('background').innerHTML = '';
                     document.getElementById('luatchoi').innerHTML = '';
+                    document.getElementById("btn2").disabled = true;
                 }
             }
             function display(x) {
@@ -628,6 +637,7 @@
                 document.getElementById("buttonPlayContainer").innerHTML = '<button id="btn1" onclick="xacnhan()" class="buttonPlay">Trả lời</button><br>' +
                     '<button id="btn2" onclick="tieptuc()" class="buttonPlay2">Tiếp theo</button><br>' +
                     '<button onclick="goiy()" class="buttonPlay">Gợi ý</button>';
+                document.getElementById("btn2").disabled = true;
                 getRandomNumber();
                 document.getElementById("totalScore").innerHTML = "Điểm<br>" + score;
                 document.getElementById("wrongAnswer").innerHTML = "Gợi ý<br>" + demGoiy;
